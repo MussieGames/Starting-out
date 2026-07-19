@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flourish — Investor Business Plan</title>
+  <meta name="description" content="Confidential investor business plan for Flourish — Every First, Forever." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1c2420;
+      --ink-soft: #3d4a43;
+      --muted: #5c6b63;
+      --line: rgba(28, 36, 32, 0.12);
+      --paper: #f7f5f0;
+      --paper-deep: #efebe3;
+      --leaf: #2f5d4a;
+      --leaf-deep: #1e3d31;
+      --leaf-soft: #e4efe9;
+      --accent: #b86b3c;
+      --white: #ffffff;
+      --shadow: 0 24px 60px rgba(30, 61, 49, 0.08);
+      --max: 820px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Source Serif 4", Georgia, serif;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 90% 50% at 10% -10%, rgba(47, 93, 74, 0.09), transparent 55%),
+        radial-gradient(ellipse 70% 40% at 100% 0%, rgba(184, 107, 60, 0.07), transparent 50%),
+        linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+      min-height: 100vh;
+      line-height: 1.65;
+      font-size: 1.05rem;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    .doc {
+      background: var(--white);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(28, 36, 32, 0.06);
+      overflow: hidden;
+    }
+
+    /* Cover */
+    .cover {
+      position: relative;
+      padding: 4.5rem 3rem 3.5rem;
+      background:
+        linear-gradient(165deg, #1e3d31 0%, #2f5d4a 48%, #3a6b56 100%);
+      color: #f4f7f5;
+      overflow: hidden;
+    }
+
+    .cover::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(255,255,255,0.12), transparent 35%),
+        radial-gradient(circle at 15% 80%, rgba(184, 107, 60, 0.18), transparent 40%);
+      pointer-events: none;
+    }
+
+    .cover-inner { position: relative; z-index: 1; max-width: var(--max); }
+
+    .eyebrow {
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 1.75rem;
+    }
+
+    .cover h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(2.8rem, 7vw, 4.2rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 0.75rem;
+    }
+
+    .tagline {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.2rem, 3vw, 1.55rem);
+      font-weight: 500;
+      font-style: italic;
+      opacity: 0.92;
+      margin-bottom: 2rem;
+    }
+
+    .cover-lead {
+      max-width: 34rem;
+      font-size: 1.05rem;
+      opacity: 0.88;
+      margin-bottom: 2.5rem;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .meta-grid dt {
+      opacity: 0.65;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.68rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .meta-grid dd { font-weight: 500; }
+
+    .meta-grid a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+    /* Nav */
+    .toc {
+      padding: 1.25rem 3rem;
+      background: var(--leaf-soft);
+      border-bottom: 1px solid var(--line);
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .toc-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--leaf);
+      margin-bottom: 0.75rem;
+    }
+
+    .toc ol {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 1.1rem;
+    }
+
+    .toc a {
+      color: var(--ink-soft);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .toc a:hover {
+      color: var(--leaf);
+      border-bottom-color: var(--leaf);
+    }
+
+    /* Body */
+    .body {
+      padding: 3rem;
+      max-width: calc(var(--max) + 6rem);
+    }
+
+    section {
+      padding: 2.75rem 0;
+      border-bottom: 1px solid var(--line);
+      animation: rise 0.7s ease both;
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section:nth-child(1) { animation-delay: 0.05s; }
+    section:nth-child(2) { animation-delay: 0.1s; }
+    section:nth-child(3) { animation-delay: 0.15s; }
+
+    .section-num {
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--leaf);
+      margin-bottom: 0.6rem;
+    }
+
+    h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.55rem, 3vw, 1.9rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--leaf-deep);
+      margin-bottom: 1.1rem;
+      line-height: 1.2;
+    }
+
+    h3 {
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 1.75rem 0 0.65rem;
+    }
+
+    p { margin-bottom: 1rem; color: var(--ink-soft); }
+
+    strong { color: var(--ink); font-weight: 600; }
+
+    ul, ol {
+      margin: 0.5rem 0 1.1rem 1.25rem;
+      color: var(--ink-soft);
+    }
+
+    li { margin-bottom: 0.4rem; }
+
+    blockquote {
+      margin: 1.5rem 0;
+      padding: 1.25rem 1.5rem;
+      border-left: 3px solid var(--leaf);
+      background: var(--leaf-soft);
+      font-family: "Fraunces", Georgia, serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--leaf-deep);
+      line-height: 1.45;
+    }
+
+    .callout {
+      margin: 1.5rem 0;
+      padding: 1.25rem 1.4rem;
+      background: linear-gradient(135deg, var(--leaf-soft), #f3efe7);
+      border: 1px solid rgba(47, 93, 74, 0.15);
+    }
+
+    .callout p { margin: 0; color: var(--ink); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.1rem 0 1.4rem;
+      font-size: 0.92rem;
+      font-family: "DM Sans", system-ui, sans-serif;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 0.7rem 0.75rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    th {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      background: rgba(228, 239, 233, 0.45);
+    }
+
+    td { color: var(--ink-soft); }
+
+    .pillars {
+      display: grid;
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+
+    @media (min-width: 640px) {
+      .pillars { grid-template-columns: 1fr 1fr; }
+    }
+
+    .pillar {
+      padding: 1.1rem 1.15rem;
+      border-top: 2px solid var(--leaf);
+      background: rgba(247, 245, 240, 0.7);
+    }
+
+    .pillar h4 {
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: var(--leaf-deep);
+    }
+
+    .pillar p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .cases {
+      display: grid;
+      gap: 0.75rem;
+      margin: 1.25rem 0;
+      counter-reset: case;
+    }
+
+    .case {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.9rem;
+      align-items: start;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .case::before {
+      counter-increment: case;
+      content: counter(case);
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--leaf);
+      line-height: 1;
+      min-width: 1.5rem;
+    }
+
+    .case p { margin: 0; }
+
+    .closing {
+      text-align: center;
+      padding: 3rem 1rem 1rem;
+    }
+
+    .closing .brand {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--leaf-deep);
+      margin-bottom: 0.4rem;
+    }
+
+    .closing .promise {
+      font-family: "Fraunces", Georgia, serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .print-bar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      font-family: "DM Sans", system-ui, sans-serif;
+    }
+
+    .print-bar button,
+    .print-bar a {
+      appearance: none;
+      border: 1px solid rgba(47, 93, 74, 0.3);
+      background: var(--white);
+      color: var(--leaf-deep);
+      font: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.55rem 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .print-bar button:hover,
+    .print-bar a:hover {
+      background: var(--leaf);
+      color: white;
+      border-color: var(--leaf);
+    }
+
+    @media (max-width: 700px) {
+      .cover, .body, .toc { padding-left: 1.35rem; padding-right: 1.35rem; }
+      .cover { padding-top: 3rem; padding-bottom: 2.5rem; }
+      .body { padding-top: 1.5rem; padding-bottom: 2rem; }
+      table { display: block; overflow-x: auto; }
+    }
+
+    @media print {
+      body { background: white; font-size: 10.5pt; }
+      .print-bar, .toc { display: none !important; }
+      .page { padding: 0; max-width: none; }
+      .doc { box-shadow: none; border: none; }
+      .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      section { break-inside: avoid; animation: none; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="print-bar">
+      <a href="../docs/Flourish-Investor-Business-Plan.md">Markdown source</a>
+      <button type="button" onclick="window.print()">Print / Save PDF</button>
+    </div>
+
+    <article class="doc">
+      <header class="cover">
+        <div class="cover-inner">
+          <p class="eyebrow">Confidential · Investor Business Plan · July 2026</p>
+          <h1>Flourish</h1>
+          <p class="tagline">Every First, Forever.</p>
+          <p class="cover-lead">
+            A privacy-first digital scrapbook for new parents — capture milestones,
+            organise memories, share privately with family, and print keepsakes that last.
+            Subscriptions fund the product. Never ads. Never data sales. Never AI training on children’s photos.
+          </p>
+          <dl class="meta-grid">
+            <div>
+              <dt>Founder</dt>
+              <dd>Shamus Maloney</dd>
+            </div>
+            <div>
+              <dt>Website</dt>
+              <dd><a href="https://www.goflourish.com.au">goflourish.com.au</a></dd>
+            </div>
+            <div>
+              <dt>Stage</dt>
+              <dd>Pre-launch · Waitlist</dd>
+            </div>
+            <div>
+              <dt>Category</dt>
+              <dd>Family tech · Memory keeping</dd>
+            </div>
+          </dl>
+        </div>
+      </header>
+
+      <nav class="toc" aria-label="Contents">
+        <p class="toc-label">Contents</p>
+        <ol>
+          <li><a href="#summary">1. Summary</a></li>
+          <li><a href="#mission">2. Mission</a></li>
+          <li><a href="#problem">3. Problem</a></li>
+          <li><a href="#solution">4. Solution</a></li>
+          <li><a href="#market">5. Market</a></li>
+          <li><a href="#model">6. Model</a></li>
+          <li><a href="#advantage">7. Advantage</a></li>
+          <li><a href="#gtm">8. Go-to-market</a></li>
+          <li><a href="#roadmap">9. Roadmap</a></li>
+          <li><a href="#team">10. Team</a></li>
+          <li><a href="#financials">11. Financials</a></li>
+          <li><a href="#ask">12. The ask</a></li>
+          <li><a href="#risks">13. Risks</a></li>
+          <li><a href="#case">14. Investment case</a></li>
+        </ol>
+      </nav>
+
+      <div class="body">
+        <section id="summary">
+          <p class="section-num">01 — Executive Summary</p>
+          <h2>A keepsake system for childhood — not another photo dump.</h2>
+          <p>
+            Flourish helps parents capture, organise, and preserve their child’s earliest moments
+            in one beautiful, secure place — with optional printed hardcover books.
+            Parents today face camera-roll chaos and growing unease about posting children’s faces
+            on social media or feeding them into AI-trained photo clouds.
+            Generic storage apps store. Social apps share. Neither treasures.
+          </p>
+          <div class="callout">
+            <p><strong>Business model:</strong> Recurring subscriptions (Bloom and premium tiers) plus high-margin printed keepsakes. No ads. No data sales. No AI training on children’s photos.</p>
+          </div>
+          <p>
+            The parenting apps category is growing at roughly 12% CAGR toward multi-billion-dollar scale.
+            Peers such as Tinybeans have validated private family memory platforms via subscription + photobook commerce —
+            proving demand while leaving room for a scrapbook-native, privacy-absolute brand.
+          </p>
+        </section>
+
+        <section id="mission">
+          <p class="section-num">02 — Mission, Vision &amp; Values</p>
+          <h2>Built to honour the moments that disappear too fast.</h2>
+          <h3>Mission</h3>
+          <p>Help parents capture every first — and keep it forever — in a space that is private, beautiful, and worthy of the most important moments of their lives.</p>
+          <h3>Vision</h3>
+          <p>A world where every child’s story is preserved with dignity: organised, shareable with the people who love them, and printable into something that outlasts technology itself.</p>
+          <table>
+            <thead>
+              <tr><th>Value</th><th>What it means</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Privacy is love</strong></td><td>A child’s face is not inventory. We never sell data or train AI on user media.</td></tr>
+              <tr><td><strong>Emotion over algorithm</strong></td><td>Parents choose what surfaces — no engagement-engineered feeds.</td></tr>
+              <tr><td><strong>Real things matter</strong></td><td>Digital is the vault; print is the heirloom.</td></tr>
+              <tr><td><strong>Built for 3am</strong></td><td>Designed for tired parents, not power users.</td></tr>
+              <tr><td><strong>Honesty</strong></td><td>Subscriptions fund the product — nothing else.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="problem">
+          <p class="section-num">03 — The Problem</p>
+          <h2>Childhood vanishes into scattered digital clutter.</h2>
+          <p>
+            First smiles, first steps, late-night feeds, and ordinary “in-between” moments scatter across
+            camera rolls, chat threads, and half-finished albums. Years later, parents remember the big events —
+            and mourn the everyday love they failed to keep in one place.
+          </p>
+          <blockquote>This is not a storage problem. It is a regret problem.</blockquote>
+          <table>
+            <thead>
+              <tr><th>Pain</th><th>Reality today</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Fragmentation</td><td>Photos, videos, notes, and milestones live in different apps</td></tr>
+              <tr><td>Social risk</td><td>Public platforms expose children to advertisers, strangers, and scrapers</td></tr>
+              <tr><td>AI &amp; data anxiety</td><td>Cloud photo products increasingly train models on personal media</td></tr>
+              <tr><td>Missed firsts</td><td>Parents often learn about milestones after they happened</td></tr>
+              <tr><td>Digital decay</td><td>Phones break, accounts lock, formats change — nothing tactile remains</td></tr>
+            </tbody>
+          </table>
+          <p>
+            Category leaders exist because parents already reject public social media for family moments.
+            Flourish’s insight: parents don’t want another photo dump — they want a <strong>keepsake system</strong>.
+          </p>
+        </section>
+
+        <section id="solution">
+          <p class="section-num">04 — The Solution</p>
+          <h2>Private scrapbook. Milestone guidance. Family sharing. Print.</h2>
+          <div class="pillars">
+            <div class="pillar">
+              <h4>Capture &amp; Import</h4>
+              <p>Shoot in-app or import photos, videos, and voice memos — instantly organised.</p>
+            </div>
+            <div class="pillar">
+              <h4>Scrapbook layouts</h4>
+              <p>Tactile, layered pages that feel like real keepsakes — warm, not clinical.</p>
+            </div>
+            <div class="pillar">
+              <h4>Firsts Tracker</h4>
+              <p>200+ milestones with gentle alerts so parents are ready to capture the moment.</p>
+            </div>
+            <div class="pillar">
+              <h4>Private family sharing</h4>
+              <p>Invite-only albums. Parents control who sees what — not the open internet.</p>
+            </div>
+            <div class="pillar">
+              <h4>Printed keepsakes</h4>
+              <p>Hardcover books on demand — the most meaningful gift to give or keep.</p>
+            </div>
+            <div class="pillar">
+              <h4>Private by design</h4>
+              <p>End-to-end encryption. No ads. No data sold. Faces never train AI.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="market">
+          <p class="section-num">05 — Market Opportunity</p>
+          <h2>A growing category with proven willingness to pay.</h2>
+          <p>
+            Global parenting apps are estimated at approximately <strong>USD $1.7–1.9B (2025–2026)</strong>,
+            with forecasts toward <strong>USD $3–6B by 2030–2035</strong> at ~12% CAGR.
+          </p>
+          <h3>Beachhead</h3>
+          <p>
+            <strong>Australia first</strong>, then English-speaking markets (NZ, UK, US, Canada).
+            ~300,000+ births per year in Australia; dual-income, privacy-conscious millennial and Gen Z parents;
+            strong fit for a premium, trust-led consumer brand.
+          </p>
+          <h3>Why now</h3>
+          <ul>
+            <li>Gen Z / younger millennial parents prefer private, intentional sharing over public feeds</li>
+            <li>Rising concern about children’s images training commercial AI</li>
+            <li>Validated economics: peers scale via subscription + photobooks (~95k paid subscribers at Tinybeans group scale post-Qeepsake)</li>
+            <li>Fragmented competition leaves room for a scrapbook-native, privacy-absolute brand</li>
+          </ul>
+        </section>
+
+        <section id="model">
+          <p class="section-num">06 — Business Model</p>
+          <h2>We earn trust the same way we earn revenue.</h2>
+          <blockquote>We make money when families subscribe and print — never when we exploit their data.</blockquote>
+          <table>
+            <thead>
+              <tr><th>Stream</th><th>Description</th><th>Role</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Subscriptions</strong></td><td>Bloom and premium tiers</td><td>Primary ARR</td></tr>
+              <tr><td><strong>Printed keepsakes</strong></td><td>Hardcover scrapbooks</td><td>Emotional LTV + margins</td></tr>
+              <tr><td><strong>Founder pricing</strong></td><td>Locked-in early-access rates</td><td>Conversion &amp; advocacy</td></tr>
+            </tbody>
+          </table>
+          <p>
+            Early access incentive (live): <strong>3 months of Bloom free</strong> for waitlist members,
+            plus first access to print books and founder pricing.
+          </p>
+          <h3>What we will never monetise</h3>
+          <ul>
+            <li>Advertising against children’s content</li>
+            <li>Selling personal data or media</li>
+            <li>Licensing children’s faces for AI training</li>
+            <li>Dark-pattern algorithmic feeds</li>
+          </ul>
+          <p>Privacy is not only ethics — it is moat and brand.</p>
+        </section>
+
+        <section id="advantage">
+          <p class="section-num">07 — Competitive Advantage</p>
+          <h2>Emotion, privacy, and permanence — together.</h2>
+          <table>
+            <thead>
+              <tr><th>Player</th><th>Flourish difference</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Google Photos / iCloud</td><td>Utility storage ≠ emotional scrapbooking; AI/data concerns</td></tr>
+              <tr><td>Instagram / Facebook</td><td>Public culture, ads — not a childhood archive</td></tr>
+              <tr><td>Tinybeans / FamilyAlbum / Qeepsake</td><td>Flourish centres scrapbook craft, Firsts Tracker, and absolute no-AI-training as brand core</td></tr>
+              <tr><td>Paper journals</td><td>Deeply personal but easy to abandon in early parenthood</td></tr>
+            </tbody>
+          </table>
+          <div class="cases">
+            <div class="case"><p><strong>Mission-founder authenticity</strong> — built from lived parental regret, not a growth hack.</p></div>
+            <div class="case"><p><strong>Privacy as business model</strong> — subscriptions remove the incentive conflict of ad platforms.</p></div>
+            <div class="case"><p><strong>Scrapbook-native UX</strong> — a keepsake experience parents feel, not a feed or folder.</p></div>
+            <div class="case"><p><strong>Digital → physical loop</strong> — print converts emotion into revenue and permanence.</p></div>
+          </div>
+          <blockquote>
+            For new parents who refuse to trade their child’s privacy for convenience,
+            Flourish is the private scrapbook that captures every first — and turns it into something you can hold forever.
+          </blockquote>
+        </section>
+
+        <section id="gtm">
+          <p class="section-num">08 — Go-to-Market</p>
+          <h2>Founder-led trust, then partnerships, then scale.</h2>
+          <ol>
+            <li><strong>Waitlist &amp; community (now)</strong> — goflourish.com.au, founder storytelling, early-access incentives</li>
+            <li><strong>Australia launch</strong> — convert waitlist; partner with midwives, doulas, antenatal classes, baby boutiques</li>
+            <li><strong>English-market expansion</strong> — NZ → UK → North America with proven creative and CAC discipline</li>
+          </ol>
+          <h3>Retention levers</h3>
+          <ul>
+            <li>Milestone notifications tied to real life</li>
+            <li>Grandparent engagement inside private albums</li>
+            <li>Parent-controlled memory resurfacing</li>
+            <li>Print occasions (birthdays, Mother’s/Father’s Day, Christmas)</li>
+          </ul>
+        </section>
+
+        <section id="roadmap">
+          <p class="section-num">09 — Product Roadmap</p>
+          <h2>Ship the keepsake core. Then deepen permanence.</h2>
+          <table>
+            <thead>
+              <tr><th>Horizon</th><th>Focus</th><th>Outcome</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Now</td><td>Waitlist, brand, MVP scope</td><td>Demand signal &amp; architecture</td></tr>
+              <tr><td>MVP</td><td>Capture, scrapbook, firsts, sharing, Bloom</td><td>First paid AU users</td></tr>
+              <tr><td>v1.1</td><td>Print ordering &amp; fulfilment</td><td>Second revenue stream</td></tr>
+              <tr><td>v1.2</td><td>Multi-child, legacy export, richer layouts</td><td>Higher ARPU &amp; retention</td></tr>
+              <tr><td>Year 2</td><td>International + partner bundles</td><td>Geographic expansion</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="team">
+          <p class="section-num">10 — Team</p>
+          <h2>Empathy meets operational discipline.</h2>
+          <p>
+            <strong>Shamus Maloney</strong> is building Flourish from lived experience as a parent of two daughters,
+            with <strong>15+ years in financial services</strong> including senior testing and analysis roles at major institutions (including HSBC).
+          </p>
+          <ul>
+            <li><strong>Empathy</strong> — authentic understanding of parental regret</li>
+            <li><strong>Rigour</strong> — quality and systems thinking from regulated environments</li>
+            <li><strong>Trust posture</strong> — natural fit for a privacy-critical consumer product</li>
+          </ul>
+          <h3>Early hiring priorities</h3>
+          <p>Mobile engineering, emotional product design, backend/security, print operations partner, and part-time growth/community.</p>
+        </section>
+
+        <section id="financials">
+          <p class="section-num">11 — Financial Outlook</p>
+          <h2>Illustrative path — updated with beta conversion data.</h2>
+          <p><em>Directional planning figures for investor discussion; not a guarantee of results.</em></p>
+          <table>
+            <thead>
+              <tr><th></th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Focus</strong></td><td>Launch &amp; learn</td><td>Scale AU + new markets</td><td>Multi-market growth</td></tr>
+              <tr><td><strong>Paid subscribers (EOY)</strong></td><td>1,500–3,000</td><td>8,000–15,000</td><td>30,000–50,000</td></tr>
+              <tr><td><strong>Print</strong></td><td>Pilot</td><td>Material attach</td><td>Established engine</td></tr>
+              <tr><td><strong>Path</strong></td><td>Invest in growth</td><td>Narrow burn</td><td>Line of sight to profit</td></tr>
+            </tbody>
+          </table>
+          <h3>Unit economics targets</h3>
+          <ul>
+            <li>Digital gross margin 75–85%+</li>
+            <li>Print contribution margin 30–45% after fulfilment</li>
+            <li>CAC payback under 6–9 months</li>
+            <li>LTV lifted by print attach rate</li>
+          </ul>
+        </section>
+
+        <section id="ask">
+          <p class="section-num">12 — Funding Ask</p>
+          <h2>Capital to finish, launch, and prove retention.</h2>
+          <p>
+            Flourish is raising to complete product build, launch in Australia, acquire early paid subscribers,
+            and establish the printed-keepsake supply chain.
+          </p>
+          <table>
+            <thead>
+              <tr><th>Use of funds</th><th>Share</th><th>Purpose</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Product &amp; engineering</td><td>~45%</td><td>MVP, security, iOS/Android quality</td></tr>
+              <tr><td>Design &amp; brand</td><td>~15%</td><td>Scrapbook UX craft &amp; onboarding</td></tr>
+              <tr><td>Growth &amp; launch</td><td>~20%</td><td>Waitlist conversion &amp; partnerships</td></tr>
+              <tr><td>Print operations</td><td>~10%</td><td>Supplier setup &amp; fulfilment pilots</td></tr>
+              <tr><td>Ops &amp; runway buffer</td><td>~10%</td><td>Legal, accounting, contingency</td></tr>
+            </tbody>
+          </table>
+          <h3>Milestones this round should buy</h3>
+          <ol>
+            <li>Public launch in Australia</li>
+            <li>First 1,000+ paid Bloom subscribers</li>
+            <li>Live print ordering with positive contribution margin</li>
+            <li>Retention cohort evidence for a priced follow-on</li>
+          </ol>
+        </section>
+
+        <section id="risks">
+          <p class="section-num">13 — Risks &amp; Mitigations</p>
+          <h2>Clear-eyed about what can go wrong.</h2>
+          <table>
+            <thead>
+              <tr><th>Risk</th><th>Mitigation</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Larger competitors</td><td>Win on scrapbook emotion, firsts alerts, and absolute privacy brand</td></tr>
+              <tr><td>Waitlist conversion</td><td>Message testing, onboarding craft, founder community</td></tr>
+              <tr><td>Storage cost creep</td><td>Tiered plans, compression, archival policies</td></tr>
+              <tr><td>Print logistics</td><td>Vetted partners, limited SKUs, clear SLAs</td></tr>
+              <tr><td>Privacy incident</td><td>Security-by-design, minimal data, incident response</td></tr>
+              <tr><td>Founder bandwidth</td><td>Capital to hire; ruthless MVP scope</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="case">
+          <p class="section-num">14 — The Investment Case</p>
+          <h2>Why investors should want to be part of Flourish.</h2>
+          <div class="cases">
+            <div class="case"><p><strong>Real emotional problem</strong> every parent recognises.</p></div>
+            <div class="case"><p><strong>Clear product</strong> that treasures memories instead of dumping or broadcasting them.</p></div>
+            <div class="case"><p><strong>Aligned model</strong> — subscriptions + print; never ads or data exploitation.</p></div>
+            <div class="case"><p><strong>Category validation</strong> from scaled peers, with differentiation still available.</p></div>
+            <div class="case"><p><strong>Timing</strong> — privacy and anti-AI-training sentiment among new parents is rising.</p></div>
+            <div class="case"><p><strong>Authentic founder</strong> with personal mission and professional discipline.</p></div>
+            <div class="case"><p><strong>Expansion vectors</strong> — geographies, multi-child, premium print, trusted partnerships.</p></div>
+          </div>
+
+          <div class="closing">
+            <p class="brand">Flourish</p>
+            <p class="promise">Every First, Forever.</p>
+            <p>
+              Parents don’t need another place to dump photos.<br />
+              They need a place worthy of their child’s story.
+            </p>
+          </div>
+
+          <div class="footer">
+            <p><strong>Contact:</strong> Shamus Maloney · Founder, Flourish · <a href="https://www.goflourish.com.au">goflourish.com.au</a></p>
+            <p style="margin-top:0.75rem">
+              This document is confidential and intended solely for prospective investors.
+              It contains forward-looking statements and illustrative financial scenarios that involve risks and uncertainties.
+              Actual results may differ. Third-party market figures and public company disclosures are used for context only and are not affiliated endorsements.
+            </p>
+          </div>
+        </section>
+      </div>
+    </article>
+  </div>
+</body>
+</html>
