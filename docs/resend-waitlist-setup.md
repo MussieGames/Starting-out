@@ -25,9 +25,9 @@ Confirmation emails for the CTA (“Get Early Access” / “Reserve My Spot”)
    ```bash
    npm i -g firebase-tools
    firebase login
-   firebase use YOUR_FIREBASE_PROJECT_ID
+   firebase use flourish-7b8c8
    ```
-   Copy `.firebaserc.example` → `.firebaserc` and set your project id.
+   `.firebaserc` in this repo is already set to `flourish-7b8c8`.
 
 ### Wire secrets & config — ~5 min
 

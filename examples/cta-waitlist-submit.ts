@@ -13,8 +13,8 @@ import { addDoc, collection, getFirestore, serverTimestamp } from "firebase/fire
 
 const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
+  authDomain: "flourish-7b8c8.firebaseapp.com",
+  projectId: "flourish-7b8c8",
   appId: "YOUR_APP_ID",
 };
 
