@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Waitlist signups from the public CTA.
+    // Clients may create a signup with email (+ optional name/source).
+    // They cannot read the list or update confirmation fields.
+    match /waitlist/{signupId} {
+      allow create: if request.resource.data.keys().hasOnly(['email', 'name', 'source', 'createdAt', 'userAgent'])
+        && request.resource.data.email is string
+        && request.resource.data.email.size() > 3
+        && request.resource.data.email.size() < 320
+        && request.resource.data.email.matches('.*@.*\\..*')
+        && (!('name' in request.resource.data)
+            || (request.resource.data.name is string && request.resource.data.name.size() < 120))
+        && (!('source' in request.resource.data)
+            || (request.resource.data.source is string && request.resource.data.source.size() < 64));
+
+      allow read, update, delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
