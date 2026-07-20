@@ -1,8 +1,5 @@
-.firebaserc
-!.firebaserc
-# Keep local overrides out of git if present; committed .firebaserc is the team default.
-functions/node_modules/
 node_modules/
+functions/node_modules/
 functions/lib/
 functions/.env
 functions/.env.*
