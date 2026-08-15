@@ -6,12 +6,12 @@
   },
   "main": "lib/index.js",
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc --watch",
+    "build": "npx --no-install tsc",
+    "build:watch": "npx --no-install tsc --watch",
     "serve": "npm run build && firebase emulators:start --only functions,firestore",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
-    "lint": "tsc --noEmit"
+    "lint": "npx --no-install tsc --noEmit"
   },
   "dependencies": {
     "firebase-admin": "^13.0.0",
