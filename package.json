@@ -5,6 +5,7 @@
   "scripts": {
     "functions:build": "npm --prefix functions run build",
     "functions:deploy": "npm --prefix functions run build && npx firebase deploy --only functions,firestore:rules",
+    "functions:deploy:win": "npm --prefix functions run build && set FUNCTIONS_DISCOVERY_TIMEOUT=120&& npx firebase deploy --only functions,firestore:rules",
     "firebase:login": "npx firebase login",
     "firebase:use": "npx firebase use flourish-7b8c8",
     "secrets:resend": "npx firebase functions:secrets:set RESEND_API_KEY"
