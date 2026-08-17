@@ -40,3 +40,8 @@ Rendered phone stills live in `website/assets/` (and copies under `website/asset
 - `feature-family.jpg` (sharing)
 - `feature-print.jpg`
 - `feature-private.jpg` (journal)
+
+## Status
+
+**Not used on the live CTA feature grid.** Reverted to lifestyle photography — phone mockups felt inconsistent with the rest of the page.
+Assets remain in `website/assets/app-screens/` for product-tour / App Store use later.
