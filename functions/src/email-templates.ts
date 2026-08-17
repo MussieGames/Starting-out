@@ -46,7 +46,7 @@ export function waitlistConfirmationHtml({ name }: TemplateInput): string {
                 You're on the Flourish early access list. Thank you — that means more than you know.
               </p>
               <p style="margin:0 0 16px;font-size:17px;line-height:1.6;">
-                Flourish exists because childhood disappears quietly — into camera rolls, chat threads, and folders that never quite feel worthy of the love inside them. We're building a private scrapbook for those earliest moments: a warm, secure place to keep every first, without ads, without algorithms, and without your family's photos ever being sold or used to train AI.
+                Flourish exists because childhoods disappear quietly — into camera rolls, chat threads, and folders that never quite feel worthy of the love inside them. We're building a private scrapbook for those earliest moments: a warm, secure place to keep every first, without ads, without algorithms, and without your family's photos ever being sold or used to train AI.
               </p>
               <p style="margin:0 0 16px;font-size:17px;line-height:1.6;">
                 Privacy isn't a feature for us. It's the promise — a space that respects how intimate new parenthood really is.
@@ -89,7 +89,7 @@ export function waitlistConfirmationText({ name }: TemplateInput): string {
 
 You're on the Flourish early access list. Thank you — that means more than you know.
 
-Flourish exists because childhood disappears quietly — into camera rolls, chat threads, and folders that never quite feel worthy of the love inside them. We're building a private scrapbook for those earliest moments: a warm, secure place to keep every first, without ads, without algorithms, and without your family's photos ever being sold or used to train AI.
+Flourish exists because childhoods disappear quietly — into camera rolls, chat threads, and folders that never quite feel worthy of the love inside them. We're building a private scrapbook for those earliest moments: a warm, secure place to keep every first, without ads, without algorithms, and without your family's photos ever being sold or used to train AI.
 
 Privacy isn't a feature for us. It's the promise — a space that respects how intimate new parenthood really is.
 
