@@ -1,0 +1,25 @@
+{
+  "name": "flourish-functions",
+  "description": "Flourish Cloud Functions — waitlist confirmation via Resend",
+  "engines": {
+    "node": "20"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "npx --no-install tsc",
+    "build:watch": "npx --no-install tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions,firestore",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "lint": "npx --no-install tsc --noEmit"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.0.0",
+    "firebase-functions": "^6.3.0",
+    "resend": "^4.1.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  },
+  "private": true
+}
