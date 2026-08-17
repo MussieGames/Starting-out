@@ -1,58 +1,41 @@
-# Deploy CTA → Firestore waitlist (no reCAPTCHA)
+# Deploy premium CTA to Flourish
 
-The live site lives in **MussieGames/Flourish** (GitHub Pages). This folder has the updated files ready to copy there.
+Updated waitlist landing page with warmer, more premium visuals.
 
 ## What changed
-- Hero + CTA forms write to Firestore `waitlist` (same path as your successful manual test)
-- reCAPTCHA + `addWaitlistEmail` removed from the page
-- Firestore rules allow **create-only** on `waitlist` (no public read/update)
-- `sendWaitlistConfirmation` still sends the Resend email
+- Hero emoji cards → photographic hero visual
+- Feature emoji icons → real photo stills
+- Removed “Early testers” fake testimonials
+- Added **Kept close** story section
+- Removed “Founder pricing” perk
+- Waitlist still writes to Firestore (unchanged)
 
-## On your PC — update the Flourish site repo
-
-```bat
-cd C:\Users\opals
-git clone https://github.com/MussieGames/Flourish.git
-cd Flourish
-```
-
-If you already have it:
+## Copy into Flourish (CMD)
 
 ```bat
+cd C:\Users\opals\Starting-out
+git checkout cursor/flourish-resend-waitlist-email-ce4c
+git pull
+
 cd C:\Users\opals\Flourish
 git checkout main
 git pull
-```
 
-Copy these two files from Starting-out into Flourish (overwrite):
+copy /Y C:\Users\opals\Starting-out\website\index.html index.html
+copy /Y C:\Users\opals\Starting-out\website\firestore.rules firestore.rules
 
-- `Starting-out\website\index.html` → `Flourish\index.html`
-- `Starting-out\website\firestore.rules` → `Flourish\firestore.rules`
+mkdir assets
+xcopy /E /I /Y C:\Users\opals\Starting-out\website\assets assets
 
-Then:
-
-```bat
-cd C:\Users\opals\Flourish
-git add index.html firestore.rules
-git commit -m "Point CTA waitlist to Firestore; allow public creates"
+git add index.html firestore.rules assets
+git commit -m "Premium CTA: photo-led visuals, replace testimonials"
 git push origin main
 ```
 
-Pushing `firestore.rules` to `main` triggers the Flourish GitHub Action to deploy rules.
-
-Also deploy rules yourself to be sure:
-
-```bat
-cd C:\Users\opals\Flourish
-npx firebase deploy --only firestore:rules --project flourish-7b8c8
-```
-
-(Use the same Firebase login as before.)
-
 ## Test
-1. Open https://www.goflourish.com.au (hard refresh: Ctrl+F5)
-2. Submit a real email on the CTA
-3. Check Firestore `waitlist` for a new doc
-4. Check inbox for confirmation
+1. Hard refresh https://www.goflourish.com.au (`Ctrl+F5`)
+2. Confirm hero photo + no emoji cards
+3. Confirm “Kept close” section (no Early testers)
+4. Submit waitlist once — still saves + emails
 
-reCAPTCHA can be reintroduced later when traffic picks up.
+Firestore rules only need redeploy if you changed them; this pass is mainly `index.html` + `assets/`.
